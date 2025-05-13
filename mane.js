@@ -27,23 +27,37 @@
 // console.log(count);
 
 
-const numberArray =  [1.1 , 2.2, -2, 3.3, -1, 5.5, 5.99, 7.49, 7.9999, -2.2, -3, 4, 6];
-const values = {'Положительно': 0, 'Отрицательно': 0};
-// counter = 0;
+// const numberArray =  [1.1 , 2.2, -2, 3.3, -1, 5.5, 5.99, 7.49, 7.9999, -2.2, -3, 4, 6];
+// const values = {'Положительно': 0, 'Отрицательно': 0};
+// // counter = 0;
+//
+// for (let i = 0; i < numberArray.length; i++) {
+//
+//     if (numberArray[i] === numberArray[numberArray.length-2]){
+//         continue
+//     }
+//
+//     if (numberArray[i] > 0){
+//         values['Положительно']++;
+//     } else {values['Отрицательно']++;}
+// }
+//
+// console.log(values);
 
-for (let i = 0; i < numberArray.length; i++) {
+const h = 5;
+let spaceCount = 0;
+let starCount = 1;
+const space = ' '
+const star = '*'
 
-    if (numberArray[i] === numberArray[numberArray.length-2]){
-        continue
-    }
 
-    if (numberArray[i] > 0){
-        values['Положительно']++;
-    } else {values['Отрицательно']++;}
+for (let i = 0; i < h; i++) {
+
+    spaceCount = h - i;
+
+    console.log(`${space.repeat(spaceCount)}${star.repeat(starCount)}`);
+
+    starCount += 2;
 }
-
-console.log(values);
-
-
 
 
