@@ -14,14 +14,36 @@
 
 
 
-let x = Math.round(Math.random()*5 +1);
-let y = Math.round(Math.random()*5 +1);
-let count = 0
+// let x = Math.round(Math.random()*5 +1);
+// let y = Math.round(Math.random()*5 +1);
+// let count = 0
+//
+// while (!(x === y)){
+//     x = Math.round(Math.random()*5 +1);
+//     y = Math.round(Math.random()*5 +1);
+//     count++
+// }
+//
+// console.log(count);
 
-while (!(x === y)){
-    x = Math.round(Math.random()*5 +1);
-    y = Math.round(Math.random()*5 +1);
-    count++
+
+const numberArray =  [1.1 , 2.2, -2, 3.3, -1, 5.5, 5.99, 7.49, 7.9999, -2.2, -3, 4, 6];
+const values = {'Положительно': 0, 'Отрицательно': 0};
+// counter = 0;
+
+for (let i = 0; i < numberArray.length; i++) {
+
+    if (numberArray[i] === numberArray[numberArray.length-2]){
+        continue
+    }
+
+    if (numberArray[i] > 0){
+        values['Положительно']++;
+    } else {values['Отрицательно']++;}
 }
 
-console.log(count);
+console.log(values);
+
+
+
+
