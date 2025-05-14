@@ -187,63 +187,147 @@
 // }
 
 
-const mary = {
-    name: 'Mary',
-    wantApples: 2,
+// const mary = {
+//     name: 'Mary',
+//     wantApples: 2,
+// };
+//
+// const alex = {
+//     name: 'Alex',
+//     wantApples: 1,
+// };
+//
+// const mike = {
+//     name: 'Mike',
+//     wantApples: 5,
+// };
+//
+// const brown = {
+//     name: 'Brown',
+//     wantApples: 4,
+// };
+//
+// const people = [mary, alex, mike, brown];
+// const apples = 11;
+// const happy = [];
+// const notHappy = [];
+//
+// const applesNumber = Math.floor(apples / people.length);
+// // const appleRemains = apples - applesNumber * people.length;
+//
+// for (const person of people) {
+//
+//     person.eaten = applesNumber
+//
+//     if (applesNumber >= person.wantApples){
+//         person.isHappy = true;
+//         happy.push(person);
+//     } else {
+//         person.isHappy = false;
+//         notHappy.push(person);
+//     }
+//
+// }
+//
+//
+//
+//
+// console.log(happy);
+// /* Довольные:
+// [
+//   { name: 'Mary', wantApples: 2, isHappy: true, eaten: 2 },
+//   { name: 'Alex', wantApples: 1, isHappy: true, eaten: 2 }
+// ]
+//  */
+//
+// console.log(notHappy);
+// /* Недовольные:
+// [
+//   { name: 'Mike', wantApples: 5, isHappy: false, eaten: 2 },
+//   { name: 'Brown', wantApples: 4, isHappy: false, eaten: 2 }
+// ]
+//  */
+
+const alice = {
+    name: 'Alice',
+    age: 10,
+    illness: null,
+    driverLicenses: ['B'],
 };
 
-const alex = {
-    name: 'Alex',
-    wantApples: 1,
+const bob = {
+    name: 'Bob',
+    age: 18,
+    illness: 'Cold',
+    driverLicenses: ['B'],
 };
 
-const mike = {
-    name: 'Mike',
-    wantApples: 5,
+const charlie = {
+    name: 'Charlie',
+    age: 17,
+    illness: null,
+    driverLicenses: ['C', 'E'],
 };
 
-const brown = {
-    name: 'Brown',
-    wantApples: 4,
+const diana = {
+    name: 'Diana',
+    age: 22,
+    illness: 'H. Disease',
+    driverLicenses: ['A', 'C', 'D'],
 };
 
-const people = [mary, alex, mike, brown];
-const apples = 11;
-const happy = [];
-const notHappy = [];
+const eve = {
+    name: 'Eve',
+    age: 35,
+    illness: null,
+    driverLicenses: ['A', 'B', 'E'],
+};
 
-const applesNumber = Math.floor(apples / people.length);
-// const appleRemains = apples - applesNumber * people.length;
+const frank = {
+    name: 'Frank',
+    age: 37,
+    illness: null,
+    driverLicenses: [],
+};
 
-for (const person of people) {
+const gorge = {
+    name: 'Gorge',
+    age: 28,
+    illness: null,
+    driverLicenses: ['B', 'D'],
+};
 
-    person.eaten = applesNumber
+const persons = [alice, bob, charlie, diana, eve, frank, gorge];
 
-    if (applesNumber >= person.wantApples){
-        person.isHappy = true;
-        happy.push(person);
-    } else {
-        person.isHappy = false;
-        notHappy.push(person);
+const invalidPersons = [];
+const validPersons = [];
+
+// ----- Код НИЖЕ нужно переписать ------
+
+
+for (const person of persons) {
+
+    if (person.age < 18){
+        person.reasonRefusal = 'Молодняк';
+        invalidPersons.push(person);
+        continue;
     }
 
+    if (person.illness !== null){
+        person.reasonRefusal = person.illness;
+        invalidPersons.push(person);
+        continue;
+    }
+
+    if (person.driverLicenses === null || !(person.driverLicenses.includes('B'))){
+        person.reasonRefusal = 'Нет прав';
+        continue;
+    }
+
+    validPersons.push(person);
 }
 
 
 
-
-console.log(happy);
-/* Довольные:
-[
-  { name: 'Mary', wantApples: 2, isHappy: true, eaten: 2 },
-  { name: 'Alex', wantApples: 1, isHappy: true, eaten: 2 }
-]
- */
-
-console.log(notHappy);
-/* Недовольные:
-[
-  { name: 'Mike', wantApples: 5, isHappy: false, eaten: 2 },
-  { name: 'Brown', wantApples: 4, isHappy: false, eaten: 2 }
-]
- */
+console.log('Для трюка подходят:', validPersons);
+ console.log('\nДля трюка НЕ подходят:', invalidPersons);
