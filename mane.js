@@ -159,29 +159,91 @@
 //  */
 
 
-const users = [
-    { name: 'Alice', age: 25 },
-    { name: 'Bob', age: 30 },
-    { name: 'Charlie', age: 25 },
-    { name: 'Diana', age: 35 },
-    { name: 'Eve', age: 30 },
-    { name: 'Frank', age: 28 },
-    { name: 'Grace', age: 25 },
-    { name: 'Hannah', age: 41 },
-    { name: 'Ivy', age: 30 },
-    { name: 'Jack', age: 28 },
-];
+// const users = [
+//     { name: 'Alice', age: 25 },
+//     { name: 'Bob', age: 30 },
+//     { name: 'Charlie', age: 25 },
+//     { name: 'Diana', age: 35 },
+//     { name: 'Eve', age: 30 },
+//     { name: 'Frank', age: 28 },
+//     { name: 'Grace', age: 25 },
+//     { name: 'Hannah', age: 41 },
+//     { name: 'Ivy', age: 30 },
+//     { name: 'Jack', age: 28 },
+// ];
+//
+// const counter = {};
+//
+//
+// for (const user of users) {
+//     if (!(user.age in counter)){
+//         counter[user.age] = 0;
+//     }
+//
+//     counter[user.age] += 1;
+// }
+// for (const counterKey in counter) {
+//     console.log(`Возраст = ${counterKey}. Количество людей = ${counter[counterKey]}`);
+// }
 
-const counter = {};
 
+const mary = {
+    name: 'Mary',
+    wantApples: 2,
+};
 
-for (const user of users) {
-    if (!(user.age in counter)){
-        counter[user.age] = 0;
+const alex = {
+    name: 'Alex',
+    wantApples: 1,
+};
+
+const mike = {
+    name: 'Mike',
+    wantApples: 5,
+};
+
+const brown = {
+    name: 'Brown',
+    wantApples: 4,
+};
+
+const people = [mary, alex, mike, brown];
+const apples = 11;
+const happy = [];
+const notHappy = [];
+
+const applesNumber = Math.floor(apples / people.length);
+// const appleRemains = apples - applesNumber * people.length;
+
+for (const person of people) {
+
+    person.eaten = applesNumber
+
+    if (applesNumber >= person.wantApples){
+        person.isHappy = true;
+        happy.push(person);
+    } else {
+        person.isHappy = false;
+        notHappy.push(person);
     }
 
-    counter[user.age] += 1;
 }
-for (const counterKey in counter) {
-    console.log(`Возраст = ${counterKey}. Количество людей = ${counter[counterKey]}`);
-}
+
+
+
+
+console.log(happy);
+/* Довольные:
+[
+  { name: 'Mary', wantApples: 2, isHappy: true, eaten: 2 },
+  { name: 'Alex', wantApples: 1, isHappy: true, eaten: 2 }
+]
+ */
+
+console.log(notHappy);
+/* Недовольные:
+[
+  { name: 'Mike', wantApples: 5, isHappy: false, eaten: 2 },
+  { name: 'Brown', wantApples: 4, isHappy: false, eaten: 2 }
+]
+ */
