@@ -87,23 +87,38 @@
 // }
 
 
-const numbers = [5, 10, 2, 8, -9007199254740991, 55, 67];
-let max = numbers[0];
-let min = numbers[0];
-let avg = 0;
+// const numbers = [5, 10, 2, 8, -9007199254740991, 55, 67];
+// let max = numbers[0];
+// let min = numbers[0];
+// let avg = 0;
+//
+// for (const number of numbers) {
+//
+//     avg += number;
+//
+//     if (number > max){
+//         max = number;
+//     }
+//     if (number < min){
+//         min = number;
+//     }
+// }
+//
+// console.log(`min: ${min}`);
+// console.log(`max: ${max}`);
+// console.log(`avg: ${max / numbers.length}`);
 
-for (const number of numbers) {
+const vowels = ["а", "у", "о", "ы", "и", "э", "я", "ю", "ё", "е"];
+let word = 'Перпендикулярно'
+let count = 0;
+const resolte = {'Гласные' : 0, 'Согласные': 0};
 
-    avg += number;
-
-    if (number > max){
-        max = number;
-    }
-    if (number < min){
-        min = number;
-    }
+for (const wordElement of word) {
+    if (vowels.includes(wordElement.toLowerCase())){
+        resolte['Гласные']++;
+    } else resolte['Согласные']++;
 }
 
-console.log(`min: ${min}`);
-console.log(`max: ${max}`);
-console.log(`avg: ${max / numbers.length}`);
+for (const resolteKey in resolte) {
+    console.log(resolteKey, resolte[resolteKey]);
+}
