@@ -44,20 +44,44 @@
 //
 // console.log(values);
 
-const h = 5;
-let spaceCount = 0;
-let starCount = 1;
-const space = ' '
-const star = '*'
+// const h = 5;
+// let spaceCount = 0;
+// let starCount = 1;
+// const space = ' '
+// const star = '*'
+//
+//
+// for (let i = 0; i < h; i++) {
+//
+//     spaceCount = h - i;
+//
+//     console.log(`${space.repeat(spaceCount)}${star.repeat(starCount)}`);
+//
+//     starCount += 2;
+// }
+
+const matrix = [
+    ['Id', 'Title', 'Description'],
+    [1, 'Title-1', 'Description-1'],
+    [2, 'Title-2', 'Description-2'],
+    [3, 'Title-3', 'Description-3', 'Поле с багом'],
+    [4, 'Title-4', 'Description-4'],
+    [5, 'Title-5', 'Description-5'],
+    [6, 'Title-6', 'Description-6', 'Поле с багом'],
+];
 
 
-for (let i = 0; i < h; i++) {
+for (let i = 0; i < matrix.length; i++) {
 
-    spaceCount = h - i;
+    let line = '';
+    line += matrix[i][0].toString() + '\t'
 
-    console.log(`${space.repeat(spaceCount)}${star.repeat(starCount)}`);
+    for (let j = 1; j < matrix[i].length; j++) {
 
-    starCount += 2;
+        if (j === 3) {
+            line += '\t'
+        }
+        line += matrix[i][j].toString() + ' '
+    }
+    console.log(line);
 }
-
-
