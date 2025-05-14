@@ -60,28 +60,50 @@
 //     starCount += 2;
 // }
 
-const matrix = [
-    ['Id', 'Title', 'Description'],
-    [1, 'Title-1', 'Description-1'],
-    [2, 'Title-2', 'Description-2'],
-    [3, 'Title-3', 'Description-3', 'Поле с багом'],
-    [4, 'Title-4', 'Description-4'],
-    [5, 'Title-5', 'Description-5'],
-    [6, 'Title-6', 'Description-6', 'Поле с багом'],
-];
+// const matrix = [
+//     ['Id', 'Title', 'Description'],
+//     [1, 'Title-1', 'Description-1'],
+//     [2, 'Title-2', 'Description-2'],
+//     [3, 'Title-3', 'Description-3', 'Поле с багом'],
+//     [4, 'Title-4', 'Description-4'],
+//     [5, 'Title-5', 'Description-5'],
+//     [6, 'Title-6', 'Description-6', 'Поле с багом'],
+// ];
 
 
-for (let i = 0; i < matrix.length; i++) {
+// for (let i = 0; i < matrix.length; i++) {
+//
+//     let line = '';
+//     line += matrix[i][0].toString() + '\t'
+//
+//     for (let j = 1; j < matrix[i].length; j++) {
+//
+//         if (j === 3) {
+//             line += '\t'
+//         }
+//         line += matrix[i][j].toString() + ' '
+//     }
+//     console.log(line);
+// }
 
-    let line = '';
-    line += matrix[i][0].toString() + '\t'
 
-    for (let j = 1; j < matrix[i].length; j++) {
+const numbers = [5, 10, 2, 8, -9007199254740991, 55, 67];
+let max = numbers[0];
+let min = numbers[0];
+let avg = 0;
 
-        if (j === 3) {
-            line += '\t'
-        }
-        line += matrix[i][j].toString() + ' '
+for (const number of numbers) {
+
+    avg += number;
+
+    if (number > max){
+        max = number;
     }
-    console.log(line);
+    if (number < min){
+        min = number;
+    }
 }
+
+console.log(`min: ${min}`);
+console.log(`max: ${max}`);
+console.log(`avg: ${max / numbers.length}`);
