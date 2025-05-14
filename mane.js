@@ -111,7 +111,7 @@
 // const vowels = ["а", "у", "о", "ы", "и", "э", "я", "ю", "ё", "е"];
 // let word = 'Перпендикулярно'
 // let count = 0;
-// const resolte = {'Гласные' : 0, 'Согласные': 0};
+// const resolte = {};
 //
 // for (const wordElement of word) {
 //     if (vowels.includes(wordElement.toLowerCase())){
@@ -123,37 +123,65 @@
 //     console.log(resolteKey, resolte[resolteKey]);
 // }
 
-const people = [
-    { id: 8, name: 'Александр', gender: 'm', age: 25 },
-    { id: 12, name: 'Мария', gender: 'f', age: 22 },
-    { id: 31, name: 'Иван', gender: 'm', age: 17 },
-    { id: 34, name: 'Ольга', gender: 'f', age: 19 },
-    { id: 53, name: 'Дмитрий', gender: 'm', age: 30 },
-    { id: 95, name: 'Екатерина', gender: 'f', age: 21 },
-    { id: 3, name: 'Сергей', gender: 'm', age: 18 },
-    { id: 20, name: 'Анна', gender: 'f', age: 20 },
-    { id: 19, name: 'Андрей', gender: 'm', age: 15 },
-    { id: 30, name: 'Наталья', gender: 'f', age: 25 },
+// const people = [
+//     { id: 8, name: 'Александр', gender: 'm', age: 25 },
+//     { id: 12, name: 'Мария', gender: 'f', age: 22 },
+//     { id: 31, name: 'Иван', gender: 'm', age: 17 },
+//     { id: 34, name: 'Ольга', gender: 'f', age: 19 },
+//     { id: 53, name: 'Дмитрий', gender: 'm', age: 30 },
+//     { id: 95, name: 'Екатерина', gender: 'f', age: 21 },
+//     { id: 3, name: 'Сергей', gender: 'm', age: 18 },
+//     { id: 20, name: 'Анна', gender: 'f', age: 20 },
+//     { id: 19, name: 'Андрей', gender: 'm', age: 15 },
+//     { id: 30, name: 'Наталья', gender: 'f', age: 25 },
+// ];
+//
+// const result = {
+//     mans: [],
+//     women: [],
+// };
+//
+// for (const person of people) {
+//     if (person.gender === 'm' && person.age > 18){
+//         result.mans.push(person.name);
+//     }
+//     if (person.gender === 'f' && person.age > 20){
+//         result.women.push(person.name);
+//     }
+// }
+//
+// console.log(result);
+// /* Должно вывестись:
+// {
+//   mans: [ 'Александр', 'Дмитрий' ],
+//   women: [ 'Мария', 'Екатерина', 'Наталья' ]
+// }
+//  */
+
+
+const users = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 25 },
+    { name: 'Diana', age: 35 },
+    { name: 'Eve', age: 30 },
+    { name: 'Frank', age: 28 },
+    { name: 'Grace', age: 25 },
+    { name: 'Hannah', age: 41 },
+    { name: 'Ivy', age: 30 },
+    { name: 'Jack', age: 28 },
 ];
 
-const result = {
-    mans: [],
-    women: [],
-};
+const counter = {};
 
-for (const person of people) {
-    if (person.gender === 'm' && person.age > 18){
-        result.mans.push(person.name);
-    }
-    if (person.gender === 'f' && person.age > 20){
-        result.women.push(person.name);
-    }
-}
 
-console.log(result);
-/* Должно вывестись:
-{
-  mans: [ 'Александр', 'Дмитрий' ],
-  women: [ 'Мария', 'Екатерина', 'Наталья' ]
+for (const user of users) {
+    if (!(user.age in counter)){
+        counter[user.age] = 0;
+    }
+
+    counter[user.age] += 1;
 }
- */
+for (const counterKey in counter) {
+    console.log(`Возраст = ${counterKey}. Количество людей = ${counter[counterKey]}`);
+}
