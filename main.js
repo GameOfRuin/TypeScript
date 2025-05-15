@@ -332,69 +332,77 @@
 // console.log('Для трюка подходят:', validPersons);
 //  console.log('\nДля трюка НЕ подходят:', invalidPersons);
 
-
-const size = 8; // Размер доски
-const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']; // Буквенные подписи к доске
-
-const chessboard = [
-    // a  b   c   d   e   f   g   h
-    ['', '', '', '', '', '', '', 'x'], // 1
-    ['', '', 'x', '', '', '', '', ''], // 2
-    ['', '', '', '', '', '', '', ''], // 3
-    ['', '', '', '', '', '', '', ''], // 4
-    ['', '', '', '', 'x', '', '', ''], // 5
-    ['', '', '', '', '', '', '', ''], // 6
-    ['', '', '', '', '', '', '', ''], // 7
-    ['', '', '', '', '', '', '', ''], // 8
-];
-
-
-for (let i = 0; i < size ; i++) {
-    for (let j = 0; j < size ; j++) {
-
-        const possibleMoves = [];
-        if (!chessboard[i][j].includes('x')){
-            continue
-        }
-
-        debugger
-        if (i > 1 && j > 0){
-            possibleMoves.push(`${letters[j-1]}${i-1}`);
-        }
-
-        if (i > 1 && j < size - 1){
-            possibleMoves.push(`${letters[j+1]}${i-1}`);
-        }
-
-        if (i > 0 && j < size - 2){
-            possibleMoves.push(`${letters[j+2]}${i}`);
-        }
-
-        if (i < size - 1 && j < size - 2){
-            possibleMoves.push(`${letters[j+2]}${i+2}`);
-        }
-
-        if (i < size - 2 && j < size - 1){
-            possibleMoves.push(`${letters[j+1]}${i+3}`)
-        }
-
-        if (i < size - 2 && j > 0){
-            possibleMoves.push(`${letters[j-1]}${i+3}`)
-        }
-
-        if (i < size - 1 && j >= 2){
-            possibleMoves.push(`${letters[j-2]}${i+2}`);
-        }
-
-        if (i > 0 && j >= 2){
-            possibleMoves.push(`${letters[j-2]}${i}`);
-        }
-
-        console.log(possibleMoves);
-    }
-
-}
+//
+// const size = 8; // Размер доски
+// const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']; // Буквенные подписи к доске
+//
+// const chessboard = [
+//     // a  b   c   d   e   f   g   h
+//     ['', '', '', '', '', '', '', 'x'], // 1
+//     ['', '', 'x', '', '', '', '', ''], // 2
+//     ['', '', '', '', '', '', '', ''], // 3
+//     ['', '', '', '', '', '', '', ''], // 4
+//     ['', '', '', '', 'x', '', '', ''], // 5
+//     ['', '', '', '', '', '', '', ''], // 6
+//     ['', '', '', '', '', '', '', ''], // 7
+//     ['', '', '', '', '', '', '', ''], // 8
+// ];
+//
+//
+// for (let i = 0; i < size ; i++) {
+//     for (let j = 0; j < size ; j++) {
+//
+//         const possibleMoves = [];
+//         if (!chessboard[i][j].includes('x')){
+//             continue
+//         }
+//
+//         debugger
+//         if (i > 1 && j > 0){
+//             possibleMoves.push(`${letters[j-1]}${i-1}`);
+//         }
+//
+//         if (i > 1 && j < size - 1){
+//             possibleMoves.push(`${letters[j+1]}${i-1}`);
+//         }
+//
+//         if (i > 0 && j < size - 2){
+//             possibleMoves.push(`${letters[j+2]}${i}`);
+//         }
+//
+//         if (i < size - 1 && j < size - 2){
+//             possibleMoves.push(`${letters[j+2]}${i+2}`);
+//         }
+//
+//         if (i < size - 2 && j < size - 1){
+//             possibleMoves.push(`${letters[j+1]}${i+3}`)
+//         }
+//
+//         if (i < size - 2 && j > 0){
+//             possibleMoves.push(`${letters[j-1]}${i+3}`)
+//         }
+//
+//         if (i < size - 1 && j >= 2){
+//             possibleMoves.push(`${letters[j-2]}${i+2}`);
+//         }
+//
+//         if (i > 0 && j >= 2){
+//             possibleMoves.push(`${letters[j-2]}${i}`);
+//         }
+//
+//         console.log(possibleMoves);
+//     }
+//
+// }
 /* Затупил с задачей
 после просмотра 1 условия if понял логику и все остальное дописал сам
 чтобы набить руку
  */
+massiv = ['asdadds', 'asdggggg', 'asdgdrgh', 'asdasww', '2314555', 'rrr', 'edwe'];
+const count = Math.floor(massiv.length / 2);
+
+for (let i = count; i < massiv.length; i++) {
+
+    console.log(massiv[i]);
+
+}
