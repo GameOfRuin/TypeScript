@@ -248,86 +248,153 @@
 // ]
 //  */
 
-const alice = {
-    name: 'Alice',
-    age: 10,
-    illness: null,
-    driverLicenses: ['B'],
-};
+// const alice = {
+//     name: 'Alice',
+//     age: 10,
+//     illness: null,
+//     driverLicenses: ['B'],
+// };
+//
+// const bob = {
+//     name: 'Bob',
+//     age: 18,
+//     illness: 'Cold',
+//     driverLicenses: ['B'],
+// };
+//
+// const charlie = {
+//     name: 'Charlie',
+//     age: 17,
+//     illness: null,
+//     driverLicenses: ['C', 'E'],
+// };
+//
+// const diana = {
+//     name: 'Diana',
+//     age: 22,
+//     illness: 'H. Disease',
+//     driverLicenses: ['A', 'C', 'D'],
+// };
+//
+// const eve = {
+//     name: 'Eve',
+//     age: 35,
+//     illness: null,
+//     driverLicenses: ['A', 'B', 'E'],
+// };
+//
+// const frank = {
+//     name: 'Frank',
+//     age: 37,
+//     illness: null,
+//     driverLicenses: [],
+// };
+//
+// const gorge = {
+//     name: 'Gorge',
+//     age: 28,
+//     illness: null,
+//     driverLicenses: ['B', 'D'],
+// };
+//
+// const persons = [alice, bob, charlie, diana, eve, frank, gorge];
+//
+// const invalidPersons = [];
+// const validPersons = [];
+//
+// // ----- Код НИЖЕ нужно переписать ------
+//
+//
+// for (const person of persons) {
+//
+//     if (person.age < 18){
+//         person.reasonRefusal = 'Молодняк';
+//         invalidPersons.push(person);
+//         continue;
+//     }
+//
+//     if (person.illness !== null){
+//         person.reasonRefusal = person.illness;
+//         invalidPersons.push(person);
+//         continue;
+//     }
+//
+//     if (person.driverLicenses === null || !(person.driverLicenses.includes('B'))){
+//         person.reasonRefusal = 'Нет прав';
+//         continue;
+//     }
+//
+//     validPersons.push(person);
+// }
+//
+//
+//
+// console.log('Для трюка подходят:', validPersons);
+//  console.log('\nДля трюка НЕ подходят:', invalidPersons);
 
-const bob = {
-    name: 'Bob',
-    age: 18,
-    illness: 'Cold',
-    driverLicenses: ['B'],
-};
 
-const charlie = {
-    name: 'Charlie',
-    age: 17,
-    illness: null,
-    driverLicenses: ['C', 'E'],
-};
+const size = 8; // Размер доски
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']; // Буквенные подписи к доске
 
-const diana = {
-    name: 'Diana',
-    age: 22,
-    illness: 'H. Disease',
-    driverLicenses: ['A', 'C', 'D'],
-};
-
-const eve = {
-    name: 'Eve',
-    age: 35,
-    illness: null,
-    driverLicenses: ['A', 'B', 'E'],
-};
-
-const frank = {
-    name: 'Frank',
-    age: 37,
-    illness: null,
-    driverLicenses: [],
-};
-
-const gorge = {
-    name: 'Gorge',
-    age: 28,
-    illness: null,
-    driverLicenses: ['B', 'D'],
-};
-
-const persons = [alice, bob, charlie, diana, eve, frank, gorge];
-
-const invalidPersons = [];
-const validPersons = [];
-
-// ----- Код НИЖЕ нужно переписать ------
+const chessboard = [
+    // a  b   c   d   e   f   g   h
+    ['', '', '', '', '', '', '', 'x'], // 1
+    ['', '', 'x', '', '', '', '', ''], // 2
+    ['', '', '', '', '', '', '', ''], // 3
+    ['', '', '', '', '', '', '', ''], // 4
+    ['', '', '', '', 'x', '', '', ''], // 5
+    ['', '', '', '', '', '', '', ''], // 6
+    ['', '', '', '', '', '', '', ''], // 7
+    ['', '', '', '', '', '', '', ''], // 8
+];
 
 
-for (const person of persons) {
+for (let i = 0; i < size ; i++) {
+    for (let j = 0; j < size ; j++) {
 
-    if (person.age < 18){
-        person.reasonRefusal = 'Молодняк';
-        invalidPersons.push(person);
-        continue;
+        const possibleMoves = [];
+        if (!chessboard[i][j].includes('x')){
+            continue
+        }
+
+        debugger
+        if (i > 1 && j > 0){
+            possibleMoves.push(`${letters[j-1]}${i-1}`);
+        }
+
+        if (i > 1 && j < size - 1){
+            possibleMoves.push(`${letters[j+1]}${i-1}`);
+        }
+
+        if (i > 0 && j < size - 2){
+            possibleMoves.push(`${letters[j+2]}${i}`);
+        }
+
+        if (i < size - 1 && j < size - 2){
+            possibleMoves.push(`${letters[j+2]}${i+2}`);
+        }
+
+        if (i < size - 2 && j < size - 1){
+            possibleMoves.push(`${letters[j+1]}${i+3}`)
+        }
+
+        if (i < size - 2 && j > 0){
+            possibleMoves.push(`${letters[j-1]}${i+3}`)
+        }
+
+        if (i < size - 1 && j >= 2){
+            possibleMoves.push(`${letters[j-2]}${i+2}`);
+        }
+
+        if (i > 0 && j >= 2){
+            possibleMoves.push(`${letters[j-2]}${i}`);
+        }
+
+        console.log(possibleMoves);
     }
 
-    if (person.illness !== null){
-        person.reasonRefusal = person.illness;
-        invalidPersons.push(person);
-        continue;
-    }
-
-    if (person.driverLicenses === null || !(person.driverLicenses.includes('B'))){
-        person.reasonRefusal = 'Нет прав';
-        continue;
-    }
-
-    validPersons.push(person);
 }
-
-
-
-console.log('Для трюка подходят:', validPersons);
- console.log('\nДля трюка НЕ подходят:', invalidPersons);
+/* Затупил с задачей
+после просмотра 1 условия if понял логику и все остальное дописал сам
+чтобы набить руку
+ */
