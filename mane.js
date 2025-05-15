@@ -333,68 +333,86 @@
 //  console.log('\nДля трюка НЕ подходят:', invalidPersons);
 
 
-const size = 8; // Размер доски
-const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']; // Буквенные подписи к доске
-
-const chessboard = [
-    // a  b   c   d   e   f   g   h
-    ['', '', '', '', '', '', '', 'x'], // 1
-    ['', '', 'x', '', '', '', '', ''], // 2
-    ['', '', '', '', '', '', '', ''], // 3
-    ['', '', '', '', '', '', '', ''], // 4
-    ['', '', '', '', 'x', '', '', ''], // 5
-    ['', '', '', '', '', '', '', ''], // 6
-    ['', '', '', '', '', '', '', ''], // 7
-    ['', '', '', '', '', '', '', ''], // 8
-];
-
-
-for (let i = 0; i < size ; i++) {
-    for (let j = 0; j < size ; j++) {
-
-        const possibleMoves = [];
-        if (!chessboard[i][j].includes('x')){
-            continue
-        }
-
-        debugger
-        if (i > 1 && j > 0){
-            possibleMoves.push(`${letters[j-1]}${i-1}`);
-        }
-
-        if (i > 1 && j < size - 1){
-            possibleMoves.push(`${letters[j+1]}${i-1}`);
-        }
-
-        if (i > 0 && j < size - 2){
-            possibleMoves.push(`${letters[j+2]}${i}`);
-        }
-
-        if (i < size - 1 && j < size - 2){
-            possibleMoves.push(`${letters[j+2]}${i+2}`);
-        }
-
-        if (i < size - 2 && j < size - 1){
-            possibleMoves.push(`${letters[j+1]}${i+3}`)
-        }
-
-        if (i < size - 2 && j > 0){
-            possibleMoves.push(`${letters[j-1]}${i+3}`)
-        }
-
-        if (i < size - 1 && j >= 2){
-            possibleMoves.push(`${letters[j-2]}${i+2}`);
-        }
-
-        if (i > 0 && j >= 2){
-            possibleMoves.push(`${letters[j-2]}${i}`);
-        }
-
-        console.log(possibleMoves);
-    }
-
-}
+// const size = 8; // Размер доски
+// const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']; // Буквенные подписи к доске
+//
+// const chessboard = [
+//     // a  b   c   d   e   f   g   h
+//     ['', '', '', '', '', '', '', 'x'], // 1
+//     ['', '', 'x', '', '', '', '', ''], // 2
+//     ['', '', '', '', '', '', '', ''], // 3
+//     ['', '', '', '', '', '', '', ''], // 4
+//     ['', '', '', '', 'x', '', '', ''], // 5
+//     ['', '', '', '', '', '', '', ''], // 6
+//     ['', '', '', '', '', '', '', ''], // 7
+//     ['', '', '', '', '', '', '', ''], // 8
+// ];
+//
+//
+// for (let i = 0; i < size ; i++) {
+//     for (let j = 0; j < size ; j++) {
+//
+//         const possibleMoves = [];
+//         if (!chessboard[i][j].includes('x')){
+//             continue
+//         }
+//
+//         debugger
+//         if (i > 1 && j > 0){
+//             possibleMoves.push(`${letters[j-1]}${i-1}`);
+//         }
+//
+//         if (i > 1 && j < size - 1){
+//             possibleMoves.push(`${letters[j+1]}${i-1}`);
+//         }
+//
+//         if (i > 0 && j < size - 2){
+//             possibleMoves.push(`${letters[j+2]}${i}`);
+//         }
+//
+//         if (i < size - 1 && j < size - 2){
+//             possibleMoves.push(`${letters[j+2]}${i+2}`);
+//         }
+//
+//         if (i < size - 2 && j < size - 1){
+//             possibleMoves.push(`${letters[j+1]}${i+3}`)
+//         }
+//
+//         if (i < size - 2 && j > 0){
+//             possibleMoves.push(`${letters[j-1]}${i+3}`)
+//         }
+//
+//         if (i < size - 1 && j >= 2){
+//             possibleMoves.push(`${letters[j-2]}${i+2}`);
+//         }
+//
+//         if (i > 0 && j >= 2){
+//             possibleMoves.push(`${letters[j-2]}${i}`);
+//         }
+//
+//         console.log(possibleMoves);
+//     }
+//
+// }
 /* Затупил с задачей
 после просмотра 1 условия if понял логику и все остальное дописал сам
 чтобы набить руку
  */
+
+const numberArray =  [1.1 , 2.2, -2, 3.3, -1, 5.5, 5.99, 7.49, 7.9999, -2.2, -3, 6.4, 2.6];
+let couner = 0
+
+for (let i = numberArray.length - 1; i >= 0 ; i--) {
+    if (numberArray[i] < 0){
+        continue;
+    }
+    if (numberArray[i] > 0 && couner < 3){
+        couner++
+        continue
+    }
+
+    numberArray[i] = Math.floor(numberArray[i]);
+
+}
+
+console.log(numberArray);
